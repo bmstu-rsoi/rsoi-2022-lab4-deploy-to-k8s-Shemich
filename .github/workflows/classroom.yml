@@ -33,6 +33,24 @@ jobs:
           username: ${{ secrets.DOCKERHUB_LOGIN }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
 
+      - name: Push images
+        run: |
+          echo "Pushing gateway image to Docker Hub"
+          docker build -t shemich/gateway-service:latest gateway-service
+          docker push shemich/gateway-service                         
+
+          echo "Pushing flight-service image to Docker Hub"
+          docker build -t shemich/flight-service:latest flight-service
+          docker push shemich/flight-service 
+          
+          echo "Pushing ticket-service image to Docker Hub"
+          docker build -t shemich/ticket-service:latest ticket-service
+          docker push shemich/ticket-service 
+          
+          echo "Pushing bonus-service image to Docker Hub"
+          docker build -t shemich/bonus-service:latest bonus-service
+          docker push shemich/bonus-service 
+
       - name: Github auto grader mark
         uses: Romanow/google-sheet-autograder-marker@v1.0
         with:
