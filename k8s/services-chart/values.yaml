@@ -1,0 +1,40 @@
+bonus-service:
+  service:
+    port: 8050
+    image:
+      name: shemich/bonus-service
+      version: "1.0"
+    database:
+      name: privileges
+      username: program
+      password: test
+
+flight-service:
+  service:
+    port: 8060
+    image:
+      name: shemich/flight-service
+      version: "1.0"
+    database:
+      name: flights
+      username: program
+      password: test
+
+ticket-service:
+  service:
+    port: 8070
+    image:
+      name: shemich/ticket-service
+      version: "1.0"
+    database:
+      name: tickets
+      username: program
+      password: test
+
+gateway-service:
+  service:
+    port: 8080
+    image:
+      name: shemich/gateway-service
+      version: "1.0"
+    isGateway: true
