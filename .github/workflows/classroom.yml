@@ -27,6 +27,12 @@ jobs:
         id: autograder
         continue-on-error: true
 
+      - name: Login Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_LOGIN }}
+          password: ${{ secrets.DOCKERHUB_PASSWORD }}
+
       - name: Github auto grader mark
         uses: Romanow/google-sheet-autograder-marker@v1.0
         with:
