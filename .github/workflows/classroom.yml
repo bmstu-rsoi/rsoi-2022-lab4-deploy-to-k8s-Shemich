@@ -51,6 +51,17 @@ jobs:
           docker build -t shemich/bonus-service:latest bonus-service
           docker push shemich/bonus-service 
 
+      - name: Deploy to k8s
+        run: |
+            kubectl config set-cluster flights-service-cluster --server="${{ secrets.KUBE_HOST }}" --insecure-skip-tls-verify=true
+            kubectl config set-credentials cloud_okteto_com-user --token="${{ secrets.OKTETO_TOKEN }}"
+            kubectl config set-context default --cluster=flights-service-cluster --user=cloud_okteto_com-user --namespace="shemich"
+            kubectl config use-context default
+            kubectl get pods
+            cd k8s && helm upgrade --install --force --debug services services-chart/
+            sleep 45
+            kubectl get pods
+
       - name: Github auto grader mark
         uses: Romanow/google-sheet-autograder-marker@v1.0
         with:
