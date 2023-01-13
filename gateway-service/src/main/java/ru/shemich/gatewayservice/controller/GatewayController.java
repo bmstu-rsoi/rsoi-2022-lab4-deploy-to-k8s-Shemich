@@ -23,7 +23,7 @@ public class GatewayController {
 
     private final String bonusServiceUrl = "https://bonus-shemich.cloud.okteto.net/api/v1";
     private final String flightServiceUrl = "https://flight-shemich.cloud.okteto.net/api/v1";
-    private final String ticketServiceUrl = "https://ticket-shemich.cloud.okteto.net";
+    private final String ticketServiceUrl = "https://ticket-shemich.cloud.okteto.net/api/v1";
     private final String headerUsername = "X-User-Name";
 
     private final GatewayService gatewayService;
