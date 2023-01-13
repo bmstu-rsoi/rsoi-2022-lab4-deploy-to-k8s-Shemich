@@ -4,7 +4,7 @@
 	"values": [
 		{
 			"key": "baseUrl",
-			"value": "https://gateway-shemich.cloud.okteto.net/",
+			"value": "https://load-balancer-drstarland.cloud.okteto.net/",
 			"enabled": true
 		}
 	],
