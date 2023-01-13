@@ -35,24 +35,16 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_LOGIN }}
           password: ${{ secrets.DOCKERHUB_PASSWORD }}
-
+          
       - name: Push images
+        timeout-minutes: 10
         run: |
-          echo "Pushing gateway image to Docker Hub"
-          docker build -t shemich/gateway-service:latest gateway-service
-          docker push shemich/gateway-service                         
-
-          echo "Pushing flight-service image to Docker Hub"
-          docker build -t shemich/flight-service:latest flight-service
-          docker push shemich/flight-service 
-          
-          echo "Pushing ticket-service image to Docker Hub"
-          docker build -t shemich/ticket-service:latest ticket-service
-          docker push shemich/ticket-service 
-          
-          echo "Pushing bonus-service image to Docker Hub"
-          docker build -t shemich/bonus-service:latest bonus-service
-          docker push shemich/bonus-service 
+          docker compose build
+          docker compose push
+          docker compose up -d
+          docker commit postgres shemich/postgres:1.0
+          docker compose down
+          docker push shemich/postgres:1.0
 
       - name: Deploy to k8s
         run: |
