@@ -7,20 +7,20 @@ default_database:
   password: postgres
 
 users:
-  - name: program
-    password: test
   - name: postgres
     password: postgres
+  - name: program
+    password: test
 
 datases:
-  - name: tickets
-    user: program
+  - name: postgres
+    user: postgres
 
-  - name: flights
-    user: program
+  - name: postgres
+    user: postgres
 
-  - name: privileges
-    user: program
+  - name: postgres
+    user: postgres
 
 resources:
   requests:
