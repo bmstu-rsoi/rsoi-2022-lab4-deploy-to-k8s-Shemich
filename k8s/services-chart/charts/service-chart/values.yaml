@@ -1,6 +1,6 @@
 domain: shemich.cloud.okteto.net
 service:
-  port:
+  port: 8080
   isGateway:
   image:
     name:
@@ -8,7 +8,7 @@ service:
 
   database:
     name:
-    host: postgres
+    host: postgres-service
     port: 5432
     username: postgres
     password: postgres
@@ -16,7 +16,7 @@ service:
   resources:
     requests:
       cpu: 200m
-      memory: 512Mi
+      memory: 256Mi
     limits:
       cpu: 200m
-      memory: 512Mi
+      memory: 256Mi

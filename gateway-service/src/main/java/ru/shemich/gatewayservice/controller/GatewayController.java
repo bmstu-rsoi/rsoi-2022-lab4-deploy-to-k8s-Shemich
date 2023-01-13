@@ -21,9 +21,9 @@ import java.util.stream.Collectors;
 @RequestMapping(path = "/api/v1", produces = "application/json")
 public class GatewayController {
 
-    private final String bonusServiceUrl = "http://bonus:8050/api/v1";
-    private final String flightServiceUrl = "http://flight:8060/api/v1";
-    private final String ticketServiceUrl = "http://ticket:8070/api/v1";
+    private final String bonusServiceUrl = "https://bonus-shemich.cloud.okteto.net/api/v1";
+    private final String flightServiceUrl = "https://flight-shemich.cloud.okteto.net/api/v1";
+    private final String ticketServiceUrl = "https://ticket-shemich.cloud.okteto.net/api/v1";
     private final String headerUsername = "X-User-Name";
 
     private final GatewayService gatewayService;

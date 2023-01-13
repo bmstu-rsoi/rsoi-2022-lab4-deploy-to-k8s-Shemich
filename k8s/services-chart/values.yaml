@@ -5,9 +5,9 @@ bonus-service:
       name: shemich/bonus-service
       version: "1.0"
     database:
-      name: privileges
-      username: program
-      password: test
+      name: postgres
+      username: postgres
+      password: postgres
 
 flight-service:
   service:
@@ -16,9 +16,9 @@ flight-service:
       name: shemich/flight-service
       version: "1.0"
     database:
-      name: flights
-      username: program
-      password: test
+      name: postgres
+      username: postgres
+      password: postgres
 
 ticket-service:
   service:
@@ -27,9 +27,9 @@ ticket-service:
       name: shemich/ticket-service
       version: "1.0"
     database:
-      name: tickets
-      username: program
-      password: test
+      name: postgres
+      username: postgres
+      password: postgres
 
 gateway-service:
   service:
