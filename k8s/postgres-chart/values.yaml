@@ -7,18 +7,10 @@ default_database:
   password: postgres
 
 users:
-  - name: postgres
-    password: postgres
   - name: program
     password: test
 
-datases:
-  - name: postgres
-    user: postgres
-
-  - name: postgres
-    user: postgres
-
+databases:
   - name: postgres
     user: postgres
 

@@ -1,3 +1,4 @@
+
 CREATE TABLE IF NOT EXISTS public.ticket
 (
     id            SERIAL PRIMARY KEY,
@@ -8,7 +9,6 @@ CREATE TABLE IF NOT EXISTS public.ticket
     status        VARCHAR(20) NOT NULL
         CHECK (status IN ('PAID', 'CANCELED'))
 );
-
 
 CREATE TABLE IF NOT EXISTS public.airport
 (
@@ -27,6 +27,11 @@ CREATE TABLE IF NOT EXISTS public.flight
     to_airport_id   INT REFERENCES airport (id),
     price           INT                      NOT NULL
 );
+
+INSERT INTO AIRPORT (ID, NAME, CITY, COUNTRY) VALUES (1, 'Пулково', 'Санкт-Петербург', 'Россия');
+INSERT INTO AIRPORT (ID, NAME, CITY, COUNTRY) VALUES (2, 'Шереметьево', 'Москва', 'Россия');
+INSERT INTO FLIGHT (ID, FLIGHT_NUMBER, DATETIME, FROM_AIRPORT_ID, TO_AIRPORT_ID, PRICE) VALUES (1, 'AFL031', '2021-10-08 20:00', 1, 2, 1500);
+INSERT INTO PRIVILEGE (ID, USERNAME, STATUS, BALANCE) VALUES (1, 'Test Max', 'BRONZE', 0);
 
 CREATE TABLE IF NOT EXISTS public.privilege
 (
