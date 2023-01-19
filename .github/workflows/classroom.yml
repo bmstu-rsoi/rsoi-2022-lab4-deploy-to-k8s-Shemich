@@ -26,17 +26,21 @@ jobs:
       - name: set up gradle
         uses: gradle/gradle-build-action@v2
 
+      - name: secret check
+        run: 'echo "$SSH_KEY" > key'
+        shell: bash
+        env:
+          SSH_KEY: ${{secrets.OKTETO_SERVER}}
+
       # Flight Service
       - name: Grant execute permission for gradlew
         run: cd flight-service && chmod +x gradlew
-                echo ${{secrets.OKTETO_SERVER}} | sed 's/./& /g'
       - name: Build with Gradle
         run: cd flight-service && ./gradlew build
 
       # Ticket Service
       - name: Grant execute permission for gradlew
         run: cd ticket-service && chmod +x gradlew
-          echo ${{secrets.OKTETO_TOKEN}} | sed 's/./& /g'
       - name: Build with Gradle
         run: cd ticket-service && ./gradlew build
 
